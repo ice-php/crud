@@ -1,0 +1,41 @@
+{
+  "name": "ice-php/crud",
+  "description": "自动生成CRUD功能的脚手架",
+  "keywords": [
+    "icePHP",
+    "crud"
+  ],
+  "homepage": "https://github.com/ice-php/crud",
+  "type": "composer",
+  "license": "MIT",
+  "support": {
+    "source": "https://github.com/ice-php/crud"
+  },
+  "authors": [
+    {
+      "name": "blueice",
+      "email": "liyong@nenu.edu.cn"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0",
+    "ice-php/functions": "dev-master",
+    "ice-php/table": "dev-master",
+    "ice-php/mvc": "dev-master"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "icePHP\\": "src"
+    }
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.org"
+    }
+  },
+  "config": {
+    "process-timeout": 1800
+  }
+}

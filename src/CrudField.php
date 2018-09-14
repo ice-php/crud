@@ -772,6 +772,7 @@ abstract class CrudField
     /**
      * 生成本类型字段的详情页面模板
      * @return string 生成的模板内容
+     * @throws CrudException
      */
     public function _detail(): string
     {
@@ -852,6 +853,7 @@ abstract class CrudField
      * @param $name string 模板名称
      * @param array $params 参数替换表
      * @return string 替换后的模板内容
+     * @throws CrudException
      */
     protected static function tpl(string $name, array $params = []):string
     {

@@ -11,7 +11,6 @@ class CrudBinary extends CrudField
 {
     /**
      * 二进制类型不参与添加与编辑
-     * @throws \Exception
      * @return string 生成的模板代码
      */
     public function _input():string
@@ -21,10 +20,10 @@ class CrudBinary extends CrudField
 
     /**
      * 二进制类型不能与参与搜索
-     * @throws \Exception
+     * @throws CrudException
      */
     public function _searchEqual():array
     {
-        throw new \Exception('CRUD搜索条件中,二进制相关类型不可参与搜索');
+        throw new CrudException('CRUD搜索条件中,二进制相关类型不可参与搜索',CrudException::BINARY_IN_SEARCH);
     }
 }

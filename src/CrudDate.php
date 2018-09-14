@@ -32,7 +32,7 @@ class CrudDate extends CrudField
     /**
      * 获取本字段类型的 数据格式,获取参数的方法名,日期格式,中文名称
      * @return array
-     * @throws \Exception
+     * @throws CrudException
      */
     private function getType():array
     {
@@ -68,7 +68,7 @@ class CrudDate extends CrudField
                 'preg' => '/^\d{2}\:\d{2}\:\d{2}$/'
             ];
         }
-        throw new \Exception('CRUD中,错误的日期类型:' . $this->_type);
+        throw new CrudException('日期类型错误:'.$this->_type,CrudException::DATE_TYPE_ERROR);
     }
 
     /**

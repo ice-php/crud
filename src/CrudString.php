@@ -10,7 +10,6 @@ class CrudString extends CrudField
     /**
      * 返回获取本类型输入参数的控制器代码模板信息
      * @return string 生成的模板代码
-     * @throws CrudException
      */
     public function _input(): string
     {

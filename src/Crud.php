@@ -526,7 +526,6 @@ class Crud
      * 生成控制器中的外键字段取值代码
      * @param CrudField[] $fields 列表/添加/编辑/...等页面中的字段列表
      * @return string 外键代码
-     * @throws CrudException
      */
     private function controllerForeign(array $fields): string
     {
@@ -549,7 +548,6 @@ class Crud
      * 生成控制器中的字典字段代码
      * @param CrudField[] $fields
      * @return string
-     * @throws CrudException
      */
     private function controllerDict(array $fields): string
     {
@@ -570,7 +568,6 @@ class Crud
     /**
      * 控制器详情方法中处理外键的代码
      * @return array[MAP代码,替换字段数组代码]
-     * @throws CrudException
      */
     private function controllerDetailForeign(): array
     {
@@ -711,7 +708,6 @@ class Crud
     /**
      * 生成控制器中行操作的代码
      * @return string
-     * @throws CrudException
      */
     private function controllerRowOperations(): string
     {
@@ -728,7 +724,6 @@ class Crud
     /**
      * 生成控制器中表操作的代码
      * @return string
-     * @throws CrudException
      */
     private function controllerTableOperations(): string
     {
@@ -745,7 +740,6 @@ class Crud
     /**
      * 生成控制器中多选操作的代码
      * @return string
-     * @throws CrudException
      */
     private function controllerMultiOperations(): string
     {
@@ -764,7 +758,6 @@ class Crud
      *
      * @param  $name string 文件名
      * @return string
-     * @throws CrudException
      */
     private static function getTpl($name): string
     {
@@ -773,7 +766,7 @@ class Crud
         $file = $path . $name . '.tpl';
         $content = file_get_contents($file);
         if (false === $content) {
-            throw new CrudException('无法读取模板文件:' . $file, CrudException::TEMPLATE_NOT_FOUND);
+            trigger_error('无法读取模板文件:' . $file, E_USER_ERROR);
         }
         return $content;
     }
@@ -784,7 +777,6 @@ class Crud
      * @param $name string 模板名称
      * @param array $params 参数替换表
      * @return string 替换后的模板内容
-     * @throws CrudException
      */
     public static function _tpl(string $name, array $params = []): string
     {
@@ -796,7 +788,6 @@ class Crud
      * @param array $crumbs 面包屑配置
      * @param bool $isList 是否是列表页
      * @return string 视图代码
-     * @throws CrudException
      */
     private function viewCrumbs(array $crumbs, bool $isList = false): string
     {
@@ -1139,7 +1130,6 @@ class Crud
      * @param CrudField $field 字段
      * @param $operation string 操作:add/edit
      * @return string
-     * @throws CrudException
      */
     private function viewValidate(CrudField $field, string $operation): string
     {
@@ -1305,7 +1295,6 @@ class Crud
     /**
      * 生成 详情 视图
      * @param $path string 视图目录
-     * @throws CrudException
      */
     private function viewDetail(string $path): void
     {
@@ -1471,7 +1460,6 @@ class Crud
     /**
      * 生成 从请求参数中获取参数值  的 控制器代码,用于addSubmit,editSubmit方法中
      * @return string 控制器代码
-     * @throws CrudException
      */
     private function controllerInput(): string
     {
@@ -1505,7 +1493,6 @@ class Crud
      * 生成获取输入参数值时的参数检查代码
      * @param CrudField $field 字段
      * @return string 检查 代码
-     * @throws CrudException
      */
     private function controllerInputValidate(CrudField $field): string
     {

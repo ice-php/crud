@@ -772,7 +772,6 @@ abstract class CrudField
     /**
      * 生成本类型字段的详情页面模板
      * @return string 生成的模板内容
-     * @throws CrudException
      */
     public function _detail(): string
     {
@@ -840,11 +839,11 @@ abstract class CrudField
      * 设置本字段是否是上传图片
      * @param bool $config true/false/配置数组
      * @return $this
-     * @throws \Exception
      */
     public function isUploadImage($config = true): CrudField
     {
-        throw new \Exception('当前数据类型无法存储上传图片:' . get_class($this) . ',config:' . ($config ? 'true' : 'false'));
+        trigger_error('当前数据类型无法存储上传图片:' . get_class($this) . ',config:' . ($config ? 'true' : 'false'), E_USER_ERROR);
+        exit;
     }
 
     /**
@@ -853,9 +852,8 @@ abstract class CrudField
      * @param $name string 模板名称
      * @param array $params 参数替换表
      * @return string 替换后的模板内容
-     * @throws CrudException
      */
-    protected static function tpl(string $name, array $params = []):string
+    protected static function tpl(string $name, array $params = []): string
     {
         return Crud::_tpl($name, $params);
     }

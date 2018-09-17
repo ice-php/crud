@@ -20,10 +20,10 @@ class CrudBinary extends CrudField
 
     /**
      * 二进制类型不能与参与搜索
-     * @throws CrudException
      */
     public function _searchEqual():array
     {
-        throw new CrudException('CRUD搜索条件中,二进制相关类型不可参与搜索',CrudException::BINARY_IN_SEARCH);
+        trigger_error('CRUD搜索条件中,二进制相关类型不可参与搜索',E_USER_ERROR);
+        exit;
     }
 }

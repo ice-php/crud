@@ -3,7 +3,7 @@
     */
     public function remove(){
         //从请求参数中获取要删除数据的行的ID
-        $id=$this->getId();
+        $id=$this->getIdMust();
 
         //删除数据
         MLog::title('删除-{$name}');

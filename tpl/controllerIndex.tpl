@@ -4,16 +4,14 @@
     public function index()
     {
         //如果是搜索,转换成GET方式,以便以后后退
-        if($_POST){
-            $this->redirect($this->url(SFrame::getController(),SFrame::getAction(),$_REQUEST));
-        }
+        $this->forceGet();
 
         //获取全部搜索参数
         $search=[];
         {$searchFields}
 
         //获取全部提交参数  submit/export/print
-        $submit = $this->getEnum('submit',['search','export','print'],false);
+        $submit = $this->getEnum('submit',['search','export','print']);
 
         //如果在列表页点击导出按钮
         if($submit == 'export'){

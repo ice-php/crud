@@ -5,7 +5,7 @@
     public function edit()
     {
         //获取要编辑数据的ID
-        $id=$this->getId();
+        $id=$this->getIdMust();
 
         //获取所有需要外键的字段的键值信息
         $foreign=[];

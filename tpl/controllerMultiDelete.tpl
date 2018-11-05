@@ -3,7 +3,7 @@
     */
     public function removeMulti(){
         //从请求参数中获取要操作的多行数据的ID数组
-        $ids=$this->getArray('ids');
+        $ids=$this->getArrayMust('ids');
 
         //执行删除操作
         MLog::title('批量删除-{$name}');

@@ -4,7 +4,7 @@
     public function detail()
     {
         //获取一行数据
-        $row=T{$upper}::instance()->row('*',['{$primaryKey}'=>$this->getId()])->toRow(){$foreignMapCode};
+        $row=T{$upper}::instance()->row('*',['{$primaryKey}'=>$this->getIdMust()])->toRow(){$foreignMapCode};
 
         {$foreignMapArray}
         display(null,[
